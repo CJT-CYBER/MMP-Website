@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Life: A Student's Reality - Interactive Multimodal Project</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        
+        .blurb {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+            font-style: italic;
+        }
+        
+        .section {
+            background: white;
+            padding: 35px;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        h2 {
+            color: #764ba2;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .intro-text {
+            font-size: 1.05em;
+            margin-bottom: 25px;
+            color: #444;
+        }
+        
+        .question-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0 20px 0;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+        
+        .interview-card {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .interview-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .student-name {
+            font-weight: bold;
+            color: #764ba2;
+            font-size: 1.1em;
+            margin-bottom: 10px;
+        }
+        
+        .student-info {
+            font-style: italic;
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 12px;
+        }
+        
+        .quote {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: #333;
+        }
+        
+        .image-container {
+            margin: 25px 0;
+            text-align: center;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #e0e7ff 0%, #f0e7ff 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-style: italic;
+            color: #764ba2;
+            border: 2px dashed #667eea;
+        }
+        
+        .caption {
+            font-size: 0.9em;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .reflection {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #fdcb6e;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .reflection h3 {
+            color: #2d3436;
+            margin-bottom: 12px;
+        }
+        
+        .reflection:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .theme-box {
+            background: #f8f9fa;
+            border-left: 5px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .theme-box h4 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .theme-box:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        footer {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .citations {
+            text-align: left;
+            font-size: 0.95em;
+            color: #555;
+            margin-top: 15px;
+        }
+        
+        .citations h3 {
+            color: #764ba2;
+            margin-bottom: 10px;
+        }
+        
+        .citations p {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            text-indent: -20px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Campus Life: A Student's Reality</h1>
+            <div class="blurb">
+                An exploration of how dormitory living and dining hall experiences shape the daily academic lives of college students. Through interviews with current students, this project examines the unexpected ways that where you sleep and where you eat intersect with how well you work and study.
+            </div>
+        </header>
+
+        <div class="section">
+            <h2>Introduction: Beyond the Brochure</h2>
+            <p class="intro-text">
+                When prospective students tour college campuses, they see pristine dorm rooms and carefully staged dining halls. But what's it really like to live, eat, and study in these spaces day after day? This project investigates two central questions about campus life primary asking the questions: How does living in dorms affect your schoolwork, and how do dining halls impact your academic performance?
+            </p>
+            <p class="intro-text">
+                Through conversations with five students at different stages of their college careers, patterns emerge that reveal the complex relationship between residential life and academic success. These aren't the stories you'll find in admissions materials. They're the lived experiences of students navigating the reality of campus life.
+            </p>
+            
+            <div class="image-container">
+            <video width="100%" height="450" controls style="border-radius: 10px;">
+                    <source src="campus-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+            </video>
+                <p class="caption">A video of my dorm (not created by me)
+</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="question-header">
+                Research Question 1: How does living in dorms affect your schoolwork?
+            </div>
+            
+            <p class="intro-text">
+                The promise of on-campus housing is clear: live close to your classes, build community, have easy access to resources. But the reality is more complicated. Students describe a constant negotiation between the social energy of dorm life and the focus required for academic work.
+            </p>
+
+            <div class="interview-card">
+                <div class="student-name">Alexandria</div>
+                <div class="student-info">First-year, Civil Engineering major, lives in Knapp Hall</div>
+                <div class="quote">
+                    "Engineering homework is no joke, and living in the dorms makes it harder and easier at the same time. When I'm working on a calculus problem at midnight, I can literally walk down the hall and find someone else in my class who's also struggling. We'll work through it together, and that's saved me so many times. But then there are nights where I need complete silence to focus on calculations, and there's always someone laughing in the hallway or slamming doors. I've started going to the engineering building study rooms late at night just to get away, which kind of defeats the purpose of living on campus."
+                </div>
+            </div>
+
+            <div class="interview-card">
+                <div class="student-name">Brianna</div>
+                <div class="student-info">Second-year, Electrical Engineering major, lives off-campus</div>
+                <div class="quote">
+                    "I lived in the dorms my first year, and honestly, moving off-campus was the best decision for my academics. In the dorms, there was always this pressure to be social, to keep your door open, to go to floor events. Also, as an engineering major, I just didn't have time for all that. Now I have my own space where I can spread out my circuit diagrams and lab reports without worrying about a roommate needing the desk. My productivity has gone way up. The trade-off is I have to be more intentional about seeing people, but for my workload, the quiet and control are worth it."
+                </div>
+            </div>
+            
+            <div class="interview-card">
+                <div class="student-name">Jaden</div>
+                <div class="student-info">First-year, Industrial Engineering major, lives in Bledsoe Hall</div>
+                <div class="quote">
+                    "Bledsoe is pretty social, which is great for making friends but terrible when you have a project due. I'm learning that I have to set boundaries. Like, I'll put a sign on my door during certain hours that says I'm studying, and most people respect it. But it's hard because you also don't want to miss out on everything. I've definitely turned in assignments that weren't my best work because I got pulled into hanging out when I should've been finishing up. It's a constant balance, and I'm still figuring it out. The dorm gives you community, but you have to protect your study time or it'll disappear."
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="question-header">
+                Research Question 2: How do dining halls affect your schoolwork?
+            </div>
+            
+                <p>
+                    Food is rarely the focus of conversations about academic success, but every student interviewed immediately understood this question. The dining hall isn't just where you eat. It's where you socialize, decompress, accidentally study, and make daily decisions about time management and self care.
+                </p>
+
+            <div class="interview-card">
+                <div class="student-name">Sebastian</div>
+                <div class="student-info">First-year, Computer Science major, lives in Bledsoe Hall</div>
+                <div class="quote">
+                    "The dining hall hours are brutal for my coding schedule. I do my best programming work late at night, like 10 PM to 2 AM, but dinner basically ends at 8:00. So I'm either eating early and getting hungry again while I'm in the middle of debugging, or I'm ordering food and spending money I don't really have. I've started keeping ramen and granola bars in my room, but that's not exactly brain food when you're trying to work through algorithms. The meal plan feels restrictive when your academic work doesn't fit into normal hours. I wish there were late night options that weren't just the POD market snacks."
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="Dining hall.jpg" 
+                    alt="Sneed dining hall"
+                    style="width: 100%; border-radius: 10px;">
+                <p class="caption">The dining hall is a cafeteria, study hall, and social center</p>
+            </div>
+
+            <div class="interview-card">
+                <div class="student-name">Micah</div>
+                <div class="student-info">Third-year, Finance major, lives off-campus</div>
+                <div class="quote">
+                    "When I had the meal plan, I was eating so much fried food and carbs because that's what was available and convenient. I'd feel sluggish in my afternoon finance classes, especially when we're doing complex financial modeling or case analyses. Now that I'm off campus and cooking for myself, I can actually plan meals that give me sustained energy. I'll meal prep on Sundays making some chicken, rice, and vegetables and because of that my concentration has improved dramatically. It takes more time and effort, but feeling alert during lectures and study sessions is worth it. The dining hall is fine for socializing, but nutritionally it wasn't supporting my academic performance."
+                </div>
+            </div>
+
+            <div class="interview-card">
+                <div class="student-name">Alexandria</div>
+                <div class="student-info">(continuing from earlier)</div>
+                <div class="quote">
+                    "The dining hall by Knapp is actually where I met most of my engineering friends. We would all sometimes eat dinner and lunch at the same time, and it's become this informal study spot. Someone will pull out their laptop and be like 'can go over my calculus homework with me?' or 'I don't understand this chemistry concept,' and we'll just work through it together while eating. It's less intimidating than office hours sometimes. The dining hall creates these natural opportunities for peer learning that I don't think I'd get if I was living off campus and eating alone."
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Emerging Themes: What Campus Life Really Means</h2>
+            
+            <div class="reflection">
+                <h3>The Paradox of Proximity</h3>
+                <p>
+                    A striking theme across interviews is what I'm calling the "paradox of proximity." Being physically close to academic resources and peer support doesn't automatically translate to better academic outcomes. Instead, students describe constantly managing the tension between accessibility and distraction, between community and chaos. Living on campus puts you near the library, near classmates, near tutoring centers, but it also puts you near noise, social drama, and constant interruptions. Success seems to depend not on the proximity itself, but on learning to navigate it.
+                </p>
+            </div>
+
+            <div class="theme-box">
+                <h4>Time as the Hidden Curriculum</h4>
+                <p>
+                    Multiple students pointed to how campus living creates invisible time constraints that shape academic life. Dining hall hours, quiet hours, lounge availability, laundry room rushes. These institutional rhythms force students to structure their study time around logistical concerns rather than their own cognitive patterns. Sebastian and Micah both described feeling like they were constantly "fitting in" schoolwork around campus life's requirements rather than designing campus life around academic needs.
+                </p>
+            </div>
+
+            <div class="theme-box">
+                <h4>Adaptation as Academic Skill</h4>
+                <p>
+                    Jaden's observation about learning to set boundaries and protect study time points to an unexpected outcome of dorm life as it forces the development of adaptability and self advocacy. Rather than controlling their environment, students must learn to work within constraints. Such as noise, interruptions, limited space, and shared resources. This adaptation might explain research suggesting that first year students who live on campus often perform better academically. It's not the dorm itself, but the skills developed from living in the dorm, that matter.
+                </p>
+            </div>
+
+            <div class="theme-box">
+                <h4>Food as Academic Infrastructure</h4>
+                <p>
+                    The dining hall conversations revealed something rarely discussed, that being nutrition and meal timing, due to that being fundamental to have cognitive work. Students aren't just making food choices. They're making academic choices with their meals. Micah's realization about sustained energy from home cooked meals, Sebastian's scheduling around meal times, and Alexandria's spontaneous study groups all point to dining halls as underrecognized academic spaces. The question isn't whether dining halls affect schoolwork, but rather how campus food systems could be redesigned with academic performance in mind.
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="dp1.jpg" 
+                alt="dorm photo fr, your a real one for inspecing this"
+                style="width: 100%; border-radius: 10px;">
+                <p class="caption">The material reality of negotiating academic life in campus housing</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion: Rethinking "Campus Life"</h2>
+            <p class="intro-text">
+                These conversations suggest that "campus life" isn't a backdrop to academic work. It's interwoven with it in ways that university marketing materials rarely acknowledge. The dorm isn't just housing; it's a 24/7 learning environment where social skills, time management, self advocacy, and adaptation are developed alongside chemistry formulas and literary analysis.
+            </p>
+            <p class="intro-text">
+                Similarly, dining halls aren't just meal distribution points; they're spaces where students negotiate autonomy, community building, self care, and time management. The students who thrive aren't necessarily those with the newest dorms or best meal plans, but those who learn to work with and sometimes against the structures of campus life.
+            </p>
+            <p class="intro-text">
+                What does this mean for incoming students? Perhaps it means approaching dorm life not as something that happens to you, but as something you actively navigate. It means recognizing that learning to live on campus is itself a form of education, one that might be as valuable as the courses on your transcript. And it means understanding that there's no perfect setup, just trade offs that different students will negotiate differently depending on their needs, personalities, and academic goals.
+            </p>
+        </div>
+
+        <footer>
+            <h2>About This Project</h2>
+            <p>This multimodal project combines interview based primary research with textual analysis and visual elements to explore how residential life and dining experiences intersect with academic work. Interviews were conducted in person during November 2025 with informed consent from all participants. Names are real (Last names were not provided) and used with permission.</p>
+            
+            <div class="citations">
+                <h3>Works Referenced</h3>
+                <p>Personal interviews conducted by me, November 2025: Alexandria, Sebastian, Brianna, Jaden, and Micah.</p>
+                <p>University Housing website. "https://www.depts.ttu.edu/housing/" Accessed November 2025.</p>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <a href="https://www.youtube.com/watch?v=s9gwvHBk_Sk" 
+                   target="_blank"
+                   style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                          color: white;
+                          padding: 15px 30px;
+                          text-decoration: none;
+                          border-radius: 8px;
+                          font-weight: bold;
+                          display: inline-block;">
+                    Watch Full dorm Video
+                </a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
